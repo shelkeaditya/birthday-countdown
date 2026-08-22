@@ -29,10 +29,6 @@ npx serve .
 python3 -m http.server
 ```
 
-## 🌐 Live Demo
-
-Check out the live version here: [bod.adityacprtm.dev](https://bod.adityacprtm.dev)
-
 ---
 
-Created by [Adityacprtm](https://adityacprtm.com)
+Created by shelkeaditya

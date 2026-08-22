@@ -1,6 +1,7 @@
-const BIRTHDAY_MONTH = 6; // June (1-based)
-const BIRTHDAY_DAY = 21;
-const JAKARTA_TZ = "Asia/Jakarta";
+const BIRTHDAY_MONTH = 4; // April (1-based)
+const BIRTHDAY_DAY = 2;
+const BIRTH_YEAR = 2004;
+const IST_TZ = "Asia/Kolkata"; // technically-correct IANA id for Mumbai; label shown to users is "Mumbai"
 
 const MS_SEC = 1000;
 const MS_MIN = MS_SEC * 60;
@@ -24,6 +25,15 @@ function yearProgressPercent(now) {
   return ((now - start) / (end - start) * 100).toFixed(1);
 }
 
+function formatConciseDate(date) {
+  // "2 April 2027" style
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 const { createApp } = Vue;
 
 const app = createApp({
@@ -37,6 +47,7 @@ const app = createApp({
       myDate: "",
       yourDate: "",
       yearProgress: 0,
+      visitorTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
   },
 
@@ -44,15 +55,28 @@ const app = createApp({
     target() {
       return nextBirthday();
     },
-    targetDate() {
-      return this.target.toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      });
+    turningAge() {
+      return this.target.getFullYear() - BIRTH_YEAR;
     },
-    targetWeekday() {
-      return this.target.toLocaleDateString("en-US", { weekday: "long" });
+    birthdayLine() {
+      return `Turning ${this.turningAge} · ${formatConciseDate(this.target)}`;
+    },
+    // Display-only: pads days to at least 2 digits so it also reads as
+    // a clean pair of dials. Does not affect the underlying calculation.
+    daysPadded() {
+      return this.days.padStart(2, "0");
+    },
+    daysDigits() {
+      return this.daysPadded.split("");
+    },
+    hoursDigits() {
+      return this.hours.split("");
+    },
+    minutesDigits() {
+      return this.minutes.split("");
+    },
+    secondsDigits() {
+      return this.seconds.split("");
     },
   },
 
@@ -78,7 +102,7 @@ const app = createApp({
       this.yearProgress = yearProgressPercent(now);
 
       this.utcDate = now.toLocaleString("en-US", { timeZone: "Etc/UTC" });
-      this.myDate = now.toLocaleString("en-US", { timeZone: JAKARTA_TZ });
+      this.myDate = now.toLocaleString("en-US", { timeZone: IST_TZ });
       this.yourDate = now.toLocaleString();
     },
   },
