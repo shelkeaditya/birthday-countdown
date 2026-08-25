@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://bod.shelkeaditya.dpdns.org/">
+  <a href="https://bday.shelkeaditya.dpdns.org/">
     <img src="https://img.shields.io/badge/🚀_Live_Demo-Birthday_Countdown-6366f1?style=for-the-badge" alt="Live Demo">
   </a>
 </p>
@@ -99,7 +99,7 @@ Just open the HTML file and you're ready to go.
 
 ## 🚀 Live Demo
 
-### 🎂 [Open Birthday Countdown](https://bod.shelkeaditya.dpdns.org/)
+### 🎂 [Open Birthday Countdown](https://bday.shelkeaditya.dpdns.org/)
 
 Experience the countdown directly in your browser.
 
