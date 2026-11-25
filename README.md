@@ -121,6 +121,6 @@ Cloud • DevOps • Security
 
 <p>
   <a href="https://github.com/shelkeaditya">
-    <img src="https://img.shields.io/badge/GitHub-@shelkeaditya-181717?style=for-the-badge&logo=github" alt="GitHub">
+    <img src="https://img.shields.io/badge/@shelkeaditya-181717?style=for-the-badge">
   </a>
 </p>
